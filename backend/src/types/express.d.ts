@@ -1,5 +1,4 @@
 import { IUrl } from '../models/Url';
-import { AuthRequest } from '../middleware/authMiddleware';
 
 declare global {
   namespace Express {
@@ -8,6 +7,7 @@ declare global {
       user?: {
         id: string;
         email: string;
+        role: string;
       };
     }
   }

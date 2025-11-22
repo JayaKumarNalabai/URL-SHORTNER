@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
 import jwt from 'jsonwebtoken';
 import { env } from '../config/env';
 import { AppError } from './errorHandler';
@@ -11,8 +11,8 @@ export interface AuthRequest extends Request {
   };
 }
 
-export const authMiddleware = (
-  req: AuthRequest,
+export const authMiddleware: RequestHandler = (
+  req: Request,
   res: Response,
   next: NextFunction
 ): void => {
