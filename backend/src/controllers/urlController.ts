@@ -38,7 +38,8 @@ export const createUrl = async (
     const { originalUrl, title, tags } = createUrlSchema.parse(req.body);
 
     const shortId = await generateShortId();
-    const baseUrl = `http://localhost:${env.port}`;
+    // Use production URL instead of localhost
+    const baseUrl = 'https://url-shortner-1r4o.onrender.com';
     const shortUrl = `${baseUrl}/${shortId}`;
 
     const url = new Url({
@@ -108,7 +109,7 @@ export const getUrls = async (
     ]);
 
     const totalPages = Math.ceil(totalItems / limit);
-    const baseUrl = `http://localhost:${env.port}`;
+    const baseUrl = 'https://url-shortner-1r4o.onrender.com';
 
     res.json({
       success: true,
@@ -171,7 +172,7 @@ export const getUrlById = async (
       return next(error);
     }
 
-    const baseUrl = `http://localhost:${env.port}`;
+    const baseUrl = 'https://url-shortner-1r4o.onrender.com';
 
     res.json({
       success: true,
@@ -228,7 +229,7 @@ export const getUrlStats = async (
       return next(error);
     }
 
-    const baseUrl = `http://localhost:${env.port}`;
+    const baseUrl = 'https://url-shortner-1r4o.onrender.com';
 
     res.json({
       success: true,
@@ -289,7 +290,7 @@ export const updateUrl = async (
       return next(error);
     }
 
-    const baseUrl = `http://localhost:${env.port}`;
+    const baseUrl = 'https://url-shortner-1r4o.onrender.com';
 
     res.json({
       success: true,

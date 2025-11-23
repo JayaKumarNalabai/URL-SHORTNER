@@ -36,7 +36,7 @@ export const getUrls = async (
       .populate('owner', 'email')
       .sort({ createdAt: -1 });
 
-    const baseUrl = `http://localhost:${env.port}`;
+    const baseUrl = 'https://url-shortner-1r4o.onrender.com';
 
     res.json({
       success: true,
