@@ -11,11 +11,15 @@ export const connectDB = async (): Promise<void> => {
   }
 };
 
+// Correct event typing for TS
+mongoose.connection.on('connected', () => {
+  console.log('🔗 MongoDB connected to host:', mongoose.connection.host);
+});
+
 mongoose.connection.on('disconnected', () => {
-  console.log('⚠️  MongoDB disconnected');
+  console.log('⚠️ MongoDB disconnected');
 });
 
-mongoose.connection.on('error', (error) => {
-  console.error('❌ MongoDB error:', error);
+mongoose.connection.on('error', (error: Error) => {
+  console.error('❌ MongoDB error:', error.message);
 });
-

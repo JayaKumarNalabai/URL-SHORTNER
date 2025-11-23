@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 app.use(
   cors({
-    origin: env.clientOrigin,
-    credentials: true,
+    origin: '*', // Allow all origins (development only)
+    credentials: false,
   })
 );
 
